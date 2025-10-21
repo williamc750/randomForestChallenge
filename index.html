@@ -319,8 +319,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p><strong>Add Brief Discussion of the Visualization</strong></p>
-<p>The most dramatic improvements in erformance occur between</p>
+<p><strong>Brief Discussion of the Visualization</strong></p>
+<p>The most dramatic improvements in performance occurs between 1 and 5 trees. The improvement for R-squared past 5 trees is not as dramataic and starts to taper off. For RMSE, there is a more gradual improvement between 5 and 25 trees. After 25 trees, the imporvement in RMSE tapers off as well. The returns for both metrics slowly starts to diminish after 25 trees.</p>
 </div>
 </div>
 </section>
@@ -328,6 +328,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="overfitting-visualization-and-analysis">2. Overfitting Visualization and Analysis</h3>
 <p><strong>Your Task:</strong> Compare decision trees vs random forests in terms of overfitting.</p>
 <p><strong>Create one visualization with two side-by-side plots showing:</strong> - Decision trees: How performance changes with tree complexity (max depth) - Random forests: How performance changes with number of trees</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/overfitting-comparison-1.png" class="img-fluid figure-img" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>Your analysis should explain:</strong> - Why individual decision trees overfit as they become more complex - Why random forests don’t suffer from the same overfitting problem - The mechanisms that prevent overfitting in random forests (bootstrap sampling, random feature selection, averaging)</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
