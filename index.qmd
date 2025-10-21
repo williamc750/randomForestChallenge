@@ -3,7 +3,6 @@ title: "Random Forest Challenge"
 subtitle: "The Power of Weak Learners"
 format:
   html: default
-  pdf: default
 execute:
   echo: true
   eval: true
@@ -12,9 +11,10 @@ execute:
 # 🌲 Random Forest Challenge - The Power of Weak Learners
 
 ::: {.callout-important}
-## 📊 Challenge Requirements In Section [Student Analysis Section](#student-analysis-section)
-- Use the same y-axis limits for both side-by-side plots so it clearly shows whether random forests outperform decision trees.
-- Do not `echo` the code that creates the visualization
+## 📊 Challenge Requirements In [Student Analysis Section](#student-analysis-section)
+
+Navigate to the [Student Analysis Section](#student-analysis-section) to see the challenge requirements.
+
 :::
 
 ::: {.callout-important}
