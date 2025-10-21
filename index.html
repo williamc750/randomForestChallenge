@@ -353,6 +353,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
+<p><strong>Brief Discussion of the Visualization</strong> In the visualization, we can see that the decision trees suffer from overfitting as the max depth increases. The training RMSE decreases as the max depth increases, while the test RMSE increases. This demonstrates the model is being too accustomed to the training data and is not generalizing well to the test data.</p>
+<p>The random forests do not suffer from the same overfitting problem. The training RMSE and test RMSE are relatively stable across the range of tree counts. This demonstrates the random forest is not being too accustomed to the training data and is generalizing well to the test data.</p>
+<p>Decision trees overfit as they become more complex because they split the data based on feature values to minimize error. Eventually, the tree becomes too complex and will overfit to the training data because it stats splitting on miniscule differences in the data.</p>
+<p>Random forests don’t suffer from the same overfitting problem because the individual trees are built independently on different bootstrap samples of the data and use random subsets of features when splitting. This randomness reduces the correlation between trees, so when their predictions are averaged, the overall model becomes more stable and less prone to overfitting.</p>
 </div>
 </div>
 </section>
