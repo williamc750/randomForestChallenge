@@ -384,6 +384,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Random Forest (1000 trees)</li>
 </ul>
 <p>Include percentage improvements over linear regression for each random forest model.</p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<caption>Performance Comparison: Linear Regression vs Random Forests</caption>
+<colgroup>
+<col style="width: 38%">
+<col style="width: 14%">
+<col style="width: 47%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Model</th>
+<th style="text-align: right;">Test RMSE</th>
+<th style="text-align: left;">Improvement vs Linear Regression</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Linear Regression</td>
+<td style="text-align: right;">33382</td>
+<td style="text-align: left;">Baseline</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Random Forest (1 tree)</td>
+<td style="text-align: right;">42549</td>
+<td style="text-align: left;">-27.5%</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Random Forest (100 trees)</td>
+<td style="text-align: right;">34012</td>
+<td style="text-align: left;">-1.9%</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Random Forest (1000 trees)</td>
+<td style="text-align: right;">33634</td>
+<td style="text-align: left;">-0.8%</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 </div>
 </section>

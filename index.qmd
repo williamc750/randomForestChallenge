@@ -410,6 +410,7 @@ Random forests don’t suffer from the same overfitting problem because the indi
 - Random Forest (100 trees) RMSE
 - Random Forest (1000 trees) RMSE
 
+
 **Your analysis should address:**
 - The improvement in RMSE when going from 1 tree to 100 trees
 - Whether switching from linear regression to 100-tree random forest shows similar improvement
@@ -427,6 +428,48 @@ Create a clear table comparing:
 - Random Forest (1000 trees)
 
 Include percentage improvements over linear regression for each random forest model.
+```{r}
+#| label: linear-regression-comparison
+#| echo: false
+#| message: false
+#| warning: false
+
+# Build linear regression model
+lm_model <- lm(SalePrice ~ ., data = train_data)
+
+# Calculate linear regression predictions and RMSE
+lm_train_pred <- predict(lm_model, train_data)
+lm_test_pred <- predict(lm_model, test_data)
+lm_train_rmse <- sqrt(mean((train_data$SalePrice - lm_train_pred)^2))
+lm_test_rmse <- sqrt(mean((test_data$SalePrice - lm_test_pred)^2))
+
+# Get random forest RMSE values (using existing variables)
+rf_1_test_rmse <- rmse_1_test
+rf_100_test_rmse <- rmse_100_test
+rf_1000_test_rmse <- rmse_1000_test
+
+# Calculate percentage improvements over linear regression
+improvement_1_tree <- ((lm_test_rmse - rf_1_test_rmse) / lm_test_rmse) * 100
+improvement_100_trees <- ((lm_test_rmse - rf_100_test_rmse) / lm_test_rmse) * 100
+improvement_1000_trees <- ((lm_test_rmse - rf_1000_test_rmse) / lm_test_rmse) * 100
+
+# Create comparison table
+comparison_table <- data.frame(
+  Model = c("Linear Regression", "Random Forest (1 tree)", "Random Forest (100 trees)", "Random Forest (1000 trees)"),
+  Test_RMSE = c(lm_test_rmse, rf_1_test_rmse, rf_100_test_rmse, rf_1000_test_rmse),
+  Improvement_vs_LR = c("Baseline", 
+                       paste0(round(improvement_1_tree, 1), "%"),
+                       paste0(round(improvement_100_trees, 1), "%"),
+                       paste0(round(improvement_1000_trees, 1), "%")),
+  stringsAsFactors = FALSE
+)
+
+# Display the table
+knitr::kable(comparison_table, 
+             col.names = c("Model", "Test RMSE", "Improvement vs Linear Regression"),
+             digits = 0,
+             caption = "Performance Comparison: Linear Regression vs Random Forests")
+```
 :::
 
 ## Challenge Requirements 📋
