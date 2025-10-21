@@ -4,7 +4,7 @@ subtitle: "The Power of Weak Learners"
 format:
   html: default
 execute:
-  echo: true
+  echo: false
   eval: true
 ---
 
@@ -95,57 +95,7 @@ rf_2000 <- randomForest(SalePrice ~ ., data = train_data, ntree = 2000, mtry = 3
 rf_5000 <- randomForest(SalePrice ~ ., data = train_data, ntree = 5000, mtry = 3, seed = 123)
 ```
 
-### Python
 
-```{python}
-#| label: load-and-model-python
-#| echo: true
-
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import mean_squared_error, r2_score
-import warnings
-warnings.filterwarnings('ignore')
-
-# Load data
-sales_data = pd.read_csv("https://raw.githubusercontent.com/flyaflya/buad442Fall2025/refs/heads/main/datasets/salesPriceData.csv")
-
-# Prepare model data
-model_vars = ['SalePrice', 'LotArea', 'YearBuilt', 'GrLivArea', 'FullBath', 
-              'HalfBath', 'BedroomAbvGr', 'TotRmsAbvGrd', 'GarageCars', 'zipCode']
-model_data = sales_data[model_vars].dropna()
-
-# Convert zipCode to categorical variable - important for proper modeling
-model_data['zipCode'] = model_data['zipCode'].astype('category')
-
-# Split data
-X = model_data.drop('SalePrice', axis=1)
-y = model_data['SalePrice']
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=123)
-
-# Build random forests with different numbers of trees (with corrected categorical zipCode)
-rf_1 = RandomForestRegressor(n_estimators=1, max_features=3, random_state=123)
-rf_5 = RandomForestRegressor(n_estimators=5, max_features=3, random_state=123)
-rf_25 = RandomForestRegressor(n_estimators=25, max_features=3, random_state=123)
-rf_100 = RandomForestRegressor(n_estimators=100, max_features=3, random_state=123)
-rf_500 = RandomForestRegressor(n_estimators=500, max_features=3, random_state=123)
-rf_1000 = RandomForestRegressor(n_estimators=1000, max_features=3, random_state=123)
-rf_2000 = RandomForestRegressor(n_estimators=2000, max_features=3, random_state=123)
-rf_5000 = RandomForestRegressor(n_estimators=5000, max_features=3, random_state=123)
-
-# Fit all models
-rf_1.fit(X_train, y_train)
-rf_5.fit(X_train, y_train)
-rf_25.fit(X_train, y_train)
-rf_100.fit(X_train, y_train)
-rf_500.fit(X_train, y_train)
-rf_1000.fit(X_train, y_train)
-rf_2000.fit(X_train, y_train)
-rf_5000.fit(X_train, y_train)
-```
 
 :::
 
@@ -228,74 +178,6 @@ performance_df <- data.frame(
 print(performance_df)
 ```
 
-### Python
-
-```{python}
-#| label: performance-comparison-python
-#| echo: true
-#| fig-width: 10
-#| fig-height: 6
-
-# Calculate predictions for test data
-predictions_1_test = rf_1.predict(X_test)
-predictions_5_test = rf_5.predict(X_test)
-predictions_25_test = rf_25.predict(X_test)
-predictions_100_test = rf_100.predict(X_test)
-predictions_500_test = rf_500.predict(X_test)
-predictions_1000_test = rf_1000.predict(X_test)
-predictions_2000_test = rf_2000.predict(X_test)
-predictions_5000_test = rf_5000.predict(X_test)
-
-# Calculate predictions for training data
-predictions_1_train = rf_1.predict(X_train)
-predictions_5_train = rf_5.predict(X_train)
-predictions_25_train = rf_25.predict(X_train)
-predictions_100_train = rf_100.predict(X_train)
-predictions_500_train = rf_500.predict(X_train)
-predictions_1000_train = rf_1000.predict(X_train)
-predictions_2000_train = rf_2000.predict(X_train)
-predictions_5000_train = rf_5000.predict(X_train)
-
-# Calculate performance metrics for test data
-rmse_1_test = np.sqrt(mean_squared_error(y_test, predictions_1_test))
-rmse_5_test = np.sqrt(mean_squared_error(y_test, predictions_5_test))
-rmse_25_test = np.sqrt(mean_squared_error(y_test, predictions_25_test))
-rmse_100_test = np.sqrt(mean_squared_error(y_test, predictions_100_test))
-rmse_500_test = np.sqrt(mean_squared_error(y_test, predictions_500_test))
-rmse_1000_test = np.sqrt(mean_squared_error(y_test, predictions_1000_test))
-rmse_2000_test = np.sqrt(mean_squared_error(y_test, predictions_2000_test))
-rmse_5000_test = np.sqrt(mean_squared_error(y_test, predictions_5000_test))
-
-# Calculate performance metrics for training data
-rmse_1_train = np.sqrt(mean_squared_error(y_train, predictions_1_train))
-rmse_5_train = np.sqrt(mean_squared_error(y_train, predictions_5_train))
-rmse_25_train = np.sqrt(mean_squared_error(y_train, predictions_25_train))
-rmse_100_train = np.sqrt(mean_squared_error(y_train, predictions_100_train))
-rmse_500_train = np.sqrt(mean_squared_error(y_train, predictions_500_train))
-rmse_1000_train = np.sqrt(mean_squared_error(y_train, predictions_1000_train))
-rmse_2000_train = np.sqrt(mean_squared_error(y_train, predictions_2000_train))
-rmse_5000_train = np.sqrt(mean_squared_error(y_train, predictions_5000_train))
-
-r2_1 = r2_score(y_test, predictions_1_test)
-r2_5 = r2_score(y_test, predictions_5_test)
-r2_25 = r2_score(y_test, predictions_25_test)
-r2_100 = r2_score(y_test, predictions_100_test)
-r2_500 = r2_score(y_test, predictions_500_test)
-r2_1000 = r2_score(y_test, predictions_1000_test)
-r2_2000 = r2_score(y_test, predictions_2000_test)
-r2_5000 = r2_score(y_test, predictions_5000_test)
-
-# Create performance comparison
-performance_data = {
-    'Trees': [1, 5, 25, 100, 500, 1000, 2000, 5000],
-    'RMSE_Test': [rmse_1_test, rmse_5_test, rmse_25_test, rmse_100_test, rmse_500_test, rmse_1000_test, rmse_2000_test, rmse_5000_test],
-    'RMSE_Train': [rmse_1_train, rmse_5_train, rmse_25_train, rmse_100_train, rmse_500_train, rmse_1000_train, rmse_2000_train, rmse_5000_train],
-    'R_squared': [r2_1, r2_5, r2_25, r2_100, r2_500, r2_1000, r2_2000, r2_5000]
-}
-
-performance_df = pd.DataFrame(performance_data)
-print(performance_df)
-```
 
 :::
 
@@ -322,6 +204,67 @@ Create two plots:
 2. **R-squared Plot:** Show how R-squared increases with more trees
 
 Use log scale on x-axis to better show the relationship across the range of tree counts.
+
+```{r}
+#| label: power-of-trees-visualization
+#| echo: false
+#| message: false
+#| warning: false
+#| fig-width: 12
+#| fig-height: 6
+
+# Create performance data for visualization
+performance_viz <- data.frame(
+  Trees = c(1, 5, 25, 100, 500, 1000, 2000, 5000),
+  RMSE_Test = c(rmse_1_test, rmse_5_test, rmse_25_test, rmse_100_test, rmse_500_test, rmse_1000_test, rmse_2000_test, rmse_5000_test),
+  RMSE_Train = c(rmse_1_train, rmse_5_train, rmse_25_train, rmse_100_train, rmse_500_train, rmse_1000_train, rmse_2000_train, rmse_5000_train),
+  R_squared = c(r2_1, r2_5, r2_25, r2_100, r2_500, r2_1000, r2_2000, r2_5000)
+)
+
+# Create side-by-side plots
+par(mfrow = c(1, 2), mar = c(5, 4, 4, 2) + 0.1)
+
+# Plot 1: RMSE vs Number of Trees
+plot(performance_viz$Trees, performance_viz$RMSE_Test, 
+     type = "b", pch = 19, col = "red", lwd = 2,
+     xlab = "Number of Trees (log scale)", ylab = "RMSE",
+     main = "RMSE vs Number of Trees",
+     log = "x", xaxt = "n", ylim = range(c(performance_viz$RMSE_Test, performance_viz$RMSE_Train)))
+
+lines(performance_viz$Trees, performance_viz$RMSE_Train, 
+      type = "b", pch = 17, col = "blue", lwd = 2)
+
+# Add custom x-axis with log scale
+axis(1, at = performance_viz$Trees, labels = performance_viz$Trees)
+
+legend("topright", 
+       legend = c("Test Data", "Training Data"), 
+       col = c("red", "blue"), 
+       pch = c(19, 17), 
+       lwd = 2,
+       bty = "n")
+
+# Plot 2: R-squared vs Number of Trees
+plot(performance_viz$Trees, performance_viz$R_squared, 
+     type = "b", pch = 19, col = "darkgreen", lwd = 2,
+     xlab = "Number of Trees (log scale)", ylab = "R-squared",
+     main = "R-squared vs Number of Trees",
+     log = "x", xaxt = "n", ylim = c(0, 1))
+
+# Add custom x-axis with log scale
+axis(1, at = performance_viz$Trees, labels = performance_viz$Trees)
+
+# Add horizontal line at R-squared = 0.8 for reference
+abline(h = 0.8, col = "gray", lty = 2)
+
+# Reset plotting parameters
+par(mfrow = c(1, 1))
+```
+
+**Add Brief Discussion of the Visualization**
+
+The most dramatic improvements in erformance occur between
+
 :::
 
 ### 2. Overfitting Visualization and Analysis
