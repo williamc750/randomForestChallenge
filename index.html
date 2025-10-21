@@ -425,6 +425,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
+<p><strong>Brief Discussion of the table</strong></p>
+<p>In the table, we can see that the linear regression is the best model for the data. Adding in one tree to the random forest reduces performance by 27.5% compared to the linear regression. Adding in 100 trees to the random forest only reduces performance by around 2%. Adding in 1000 trees to the random forest only reduces performance by around 0.5%. This demonstrates the power of ensemble learning. The RMSE is dramatically improved by adding in more trees to the random forest. A single tree in the forest falls victim to overfitting.</p>
+<p>For this dataset, random forests are not worth the added complexity as the data appears mostly linear. Random forests are most worth it when the data is nonlinear and complex. Linear regressions wouldn’t be able to handle curves that are u-shaped or have multiple peaks.</p>
 </div>
 </div>
 </section>
