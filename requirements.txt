@@ -1,0 +1,167 @@
+# Data Science and Machine Learning
+numpy==2.3.2
+pandas==2.3.2
+scikit-learn==1.7.2
+scipy==1.16.2
+matplotlib==3.10.5
+seaborn==0.13.2
+statsmodels==0.14.5
+
+# Jupyter and Notebook Environment
+jupyter==1.1.1
+jupyterlab==4.4.6
+jupyterlab_server==2.27.3
+jupyterlab_widgets==3.0.15
+jupyter_client==8.6.3
+jupyter_core==5.8.1
+jupyter_server==2.17.0
+jupyter_server_terminals==0.5.3
+jupyter-console==6.6.3
+jupyter-events==0.12.0
+jupyter-lsp==2.3.0
+notebook==7.4.5
+notebook_shim==0.2.4
+ipykernel==6.30.1
+ipython==9.4.0
+ipython_pygments_lexers==1.1.1
+ipywidgets==8.1.7
+widgetsnbextension==4.0.14
+
+# Data Processing and Utilities
+joblib==1.5.2
+patsy==1.0.1
+pyreadr==0.5.3
+quarto==0.1.0
+
+# Web and HTTP
+requests==2.32.5
+httpx==0.28.1
+httpcore==1.0.9
+urllib3==2.5.0
+certifi==2025.8.3
+charset-normalizer==3.4.3
+idna==3.10
+
+# JSON and Data Formats
+json5==0.12.1
+jsonpointer==3.0.0
+jsonschema==4.25.1
+jsonschema-specifications==2025.4.1
+fastjsonschema==2.21.2
+referencing==0.36.2
+rpds-py==0.27.1
+
+# Date and Time
+python-dateutil==2.9.0.post0
+pytz==2025.2
+tzdata==2025.2
+types-python-dateutil==2.9.0.20250822
+arrow==1.3.0
+isoduration==20.11.0
+
+# Security and Authentication
+argon2-cffi==25.1.0
+argon2-cffi-bindings==25.1.0
+
+# Async and Concurrency
+anyio==4.10.0
+async-lru==2.0.5
+nest-asyncio==1.6.0
+sniffio==1.3.1
+
+# Text Processing and Markup
+beautifulsoup4==4.13.5
+bleach==6.2.0
+defusedxml==0.7.1
+lark==1.2.2
+mistune==3.1.3
+MarkupSafe==3.0.2
+Jinja2==3.1.6
+Pygments==2.19.2
+jupyterlab_pygments==0.3.0
+pandocfilters==1.5.1
+
+# Development and Debugging
+debugpy==1.8.16
+executing==2.2.0
+stack-data==0.6.3
+pure_eval==0.2.3
+asttokens==3.0.0
+
+# Code Analysis and Parsing
+jedi==0.19.2
+parso==0.8.5
+decorator==5.2.1
+
+# UI and Terminal
+prompt_toolkit==3.0.52
+wcwidth==0.2.13
+terminado==0.18.1
+pywinpty==3.0.0
+
+# System and Platform
+psutil==7.0.0
+platformdirs==4.4.0
+pywin32==311
+colorama==0.4.6
+
+# Graphics and Visualization
+contourpy==1.3.3
+cycler==0.12.1
+kiwisolver==1.4.9
+pillow==11.3.0
+fonttools==4.59.2
+matplotlib-inline==0.1.7
+
+# Communication and Networking
+pyzmq==27.0.2
+tornado==6.5.2
+websocket-client==1.8.0
+h11==0.16.0
+
+# Configuration and Logging
+python-json-logger==3.3.0
+PyYAML==6.0.2
+traitlets==5.14.3
+
+# Monitoring and Metrics
+prometheus_client==0.22.1
+
+# File Operations
+Send2Trash==1.8.3
+
+# Validation and Formatting
+rfc3339-validator==0.1.4
+rfc3986-validator==0.1.1
+rfc3987-syntax==1.1.0
+uri-template==1.3.0
+
+# Web Standards
+webcolors==24.11.1
+webencodings==0.5.1
+tinycss2==1.4.0
+soupsieve==2.8
+
+# Core Dependencies
+setuptools==80.9.0
+six==1.17.0
+packaging==25.0
+attrs==25.3.0
+typing_extensions==4.15.0
+
+# Jupyter Extensions
+jupyterlab_widgets==3.0.15
+nbclient==0.10.2
+nbconvert==7.16.6
+nbformat==5.10.4
+
+# Additional Utilities
+babel==2.17.0
+comm==0.2.3
+fqdn==1.5.1
+daft-pgm==0.1.4
+threadpoolctl==3.6.0
+pycparser==2.22
+cffi==1.17.1
+pyparsing==3.2.3
+
