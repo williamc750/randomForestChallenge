@@ -334,12 +334,15 @@ y_limits <- range(all_rmse_values)
 par(mfrow = c(1, 2), mar = c(5, 4, 4, 2) + 0.1)
 
 # Plot 1: Decision Trees - Overfitting
-plot(max_depths, dt_test_rmse, 
-     type = "b", pch = 19, col = "red", lwd = 2,
+# Create empty plot with fixed y-axis
+plot(1, type = "n", 
+     xlim = range(max_depths), ylim = y_limits,
      xlab = "Max Depth", ylab = "RMSE",
-     main = "Decision Trees: Overfitting with Complexity",
-     ylim = y_limits)
+     main = "Decision Trees: Overfitting with Complexity")
 
+# Add lines
+lines(max_depths, dt_test_rmse, 
+      type = "b", pch = 19, col = "red", lwd = 2)
 lines(max_depths, dt_train_rmse, 
       type = "b", pch = 17, col = "blue", lwd = 2)
 
@@ -351,16 +354,20 @@ legend("topright",
        bty = "n")
 
 # Add text annotation for overfitting
-text(15, max(dt_test_rmse) * 0.95, "Overfitting\nGap Widens", 
+text(15, y_limits[2] * 0.95, "Overfitting\nGap Widens", 
      col = "darkred", font = 2, cex = 0.8)
 
 # Plot 2: Random Forests - No Overfitting
-plot(rf_trees, rf_test_rmse, 
-     type = "b", pch = 19, col = "red", lwd = 2,
+# Create empty plot with fixed y-axis
+plot(1, type = "n", 
+     xlim = range(rf_trees), ylim = y_limits,
      xlab = "Number of Trees (log scale)", ylab = "RMSE",
      main = "Random Forests: No Overfitting",
-     log = "x", xaxt = "n", ylim = y_limits)
+     log = "x", xaxt = "n")
 
+# Add lines
+lines(rf_trees, rf_test_rmse, 
+      type = "b", pch = 19, col = "red", lwd = 2)
 lines(rf_trees, rf_train_rmse, 
       type = "b", pch = 17, col = "blue", lwd = 2)
 
@@ -375,7 +382,7 @@ legend("topright",
        bty = "n")
 
 # Add text annotation for no overfitting
-text(500, max(rf_test_rmse) * 0.95, "No Overfitting\nGap Stays Small", 
+text(500, y_limits[2] * 0.95, "No Overfitting\nGap Stays Small", 
      col = "darkgreen", font = 2, cex = 0.8)
 
 # Reset plotting parameters
