@@ -261,9 +261,9 @@ abline(h = 0.8, col = "gray", lty = 2)
 par(mfrow = c(1, 1))
 ```
 
-**Add Brief Discussion of the Visualization**
+**Brief Discussion of the Visualization**
 
-The most dramatic improvements in erformance occur between
+The most dramatic improvements in performance occurs between 1 and 5 trees. The improvement for R-squared past 5 trees is not as dramataic and starts to taper off. For RMSE, there is a more gradual improvement between 5 and 25 trees. After 25 trees, the imporvement in RMSE tapers off as well. The returns for both metrics slowly starts to diminish after 25 trees. 
 
 :::
 
